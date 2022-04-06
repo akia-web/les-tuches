@@ -1,6 +1,9 @@
-import {requestApi} from "../api/requestApi"
+import { requestApi } from "../api/requestApi"
+import {useEffect} from "react"
 const Salut = () => {
-    requestApi();
+    useEffect(() => {
+        requestApi()
+    }, []) 
   return <div>Salut</div>;
 };
 
