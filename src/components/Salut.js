@@ -1,10 +1,11 @@
-import { requestApi } from "../api/requestApi"
-import {useEffect} from "react"
-const Salut = () => {
-    useEffect(() => {
-        requestApi()
-    }, []) 
-  return <div>Salut</div>;
+import Map from "./Map"
+const Salut = () => { 
+  return (
+    <div>
+          Salut
+          <Map/>
+    </div>
+  );
 };
 
 export default Salut;
