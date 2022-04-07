@@ -13,11 +13,9 @@ function App() {
     useEffect(() => {
         requestServiceApi(pageNumber).then((r) => {
             let tempoArray = caracters;
-            console.log('tempoArray : ', tempoArray);
             r.data.forEach((value) => {
                 tempoArray.push(value);
             })
-            console.log('caracters : ', caracters);
             setCaracters(tempoArray);
             setMaxPage(r.pagination.last_visible_page);
         });
@@ -32,13 +30,19 @@ function App() {
         <div className="App">
             <div className={'wrapper'}>
                 {
-                    caracters ? caracters.map((caracter => {
-                        return <BasicCard key={caracter.mal_id} caracter={caracter}/>
-                    })) : null
+                    caracters ?
+                    Array.from(caracters.entries(), ([key, caracter]) =>
+                    {
+                        caracter.id = key + 1;
+                        return <BasicCard key={key} caracter={caracter}/>
+                    }
+                    ) : null
                 }
             </div>
             {
-                pageNumber + 1 <= maxPage && <button onClick={() => {loadNextPage(pageNumber)}}>Load more</button>
+                pageNumber + 1 <= maxPage && <button onClick={() => {
+                    loadNextPage(pageNumber)
+                }}>Load 25 more</button>
             }
         </div>
     );
