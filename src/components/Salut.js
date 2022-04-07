@@ -1,10 +1,6 @@
-import { requestApi } from "../api/requestApi"
-import {useEffect} from "react"
-const Salut = () => {
-    useEffect(() => {
-        requestApi()
-    }, []) 
-  return <div>Salut</div>;
+const Salut = (caracter) => {
+    caracter = caracter.caracter;
+    return <p>{caracter.name}</p>;
 };
 
 export default Salut;
