@@ -6,6 +6,7 @@ export default function BasicCard(caracter) {
     return (
             <div className={'card'}>
                 <a href={caracter.url} target={'_blank'}>
+                    <p>{caracter.id}</p>
                     <h2>{caracter.name}</h2>
                     <p>{caracter.name_kanji}</p>
                     <img src={caracter.images.jpg.image_url}
